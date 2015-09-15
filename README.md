@@ -27,6 +27,7 @@ Time spent: `8`
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Walkthrough
-
+#### Part 1
 ![Video Walkthrough](Twitter1.gif)
+#### Part 2
 ![Video Walkthrough](Twitter2.gif)
