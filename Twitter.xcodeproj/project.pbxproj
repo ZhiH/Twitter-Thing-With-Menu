@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		577C85E1B0E58DA5E1774245 /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87869186B5D8BE8967773DA9 /* libPods-Twitter.a */; };
+		D92DED531BB118EB0010225F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DED521BB118EB0010225F /* MenuViewController.swift */; };
+		D92DED561BB11A0A0010225F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DED551BB11A0A0010225F /* MenuCell.swift */; };
+		D92DED581BB11B990010225F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DED571BB11B990010225F /* ProfileViewController.swift */; };
+		D92DED5A1BB11C6B0010225F /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DED591BB11C6B0010225F /* MentionsViewController.swift */; };
+		D92DED5C1BB11FCF0010225F /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92DED5B1BB11FCF0010225F /* HamburgerViewController.swift */; };
 		D99AED951BA68A2200D5C45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99AED941BA68A2200D5C45A /* AppDelegate.swift */; };
 		D99AED971BA68A2200D5C45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99AED961BA68A2200D5C45A /* ViewController.swift */; };
 		D99AED9A1BA68A2200D5C45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99AED981BA68A2200D5C45A /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 /* Begin PBXFileReference section */
 		17C6FD8E14B5CD6A13E61014 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 		87869186B5D8BE8967773DA9 /* libPods-Twitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92DED521BB118EB0010225F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		D92DED551BB11A0A0010225F /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		D92DED571BB11B990010225F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D92DED591BB11C6B0010225F /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
+		D92DED5B1BB11FCF0010225F /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		D99AED8F1BA68A2200D5C45A /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99AED931BA68A2200D5C45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99AED941BA68A2200D5C45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +103,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D92DED541BB1190C0010225F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D99AEDC11BA6B4DB00D5C45A /* TweetCell.swift */,
+				D92DED551BB11A0A0010225F /* MenuCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D99AED861BA68A2200D5C45A = {
 			isa = PBXGroup;
 			children = (
@@ -116,14 +135,18 @@
 		D99AED911BA68A2200D5C45A /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D92DED541BB1190C0010225F /* Views */,
 				D99AEDBA1BA69E5C00D5C45A /* Models */,
 				D99AEDB71BA68BEC00D5C45A /* API */,
 				D99AED941BA68A2200D5C45A /* AppDelegate.swift */,
-				D99AED961BA68A2200D5C45A /* ViewController.swift */,
+				D92DED5B1BB11FCF0010225F /* HamburgerViewController.swift */,
+				D92DED591BB11C6B0010225F /* MentionsViewController.swift */,
+				D92DED521BB118EB0010225F /* MenuViewController.swift */,
+				D92DED571BB11B990010225F /* ProfileViewController.swift */,
 				D99AEDBF1BA6ABBE00D5C45A /* TweetsViewController.swift */,
 				D99AEDC31BA7CE6000D5C45A /* TweetViewController.swift */,
 				D99AEDC51BA7E2EF00D5C45A /* TweetDetailViewController.swift */,
-				D99AEDC11BA6B4DB00D5C45A /* TweetCell.swift */,
+				D99AED961BA68A2200D5C45A /* ViewController.swift */,
 				D99AED981BA68A2200D5C45A /* Main.storyboard */,
 				D99AED9B1BA68A2200D5C45A /* Images.xcassets */,
 				D99AED9D1BA68A2200D5C45A /* LaunchScreen.xib */,
@@ -311,9 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99AEDBC1BA69E8D00D5C45A /* User.swift in Sources */,
+				D92DED531BB118EB0010225F /* MenuViewController.swift in Sources */,
 				D99AEDC21BA6B4DB00D5C45A /* TweetCell.swift in Sources */,
 				D99AEDC61BA7E2EF00D5C45A /* TweetDetailViewController.swift in Sources */,
 				D99AEDBE1BA69EA200D5C45A /* Tweet.swift in Sources */,
+				D92DED5A1BB11C6B0010225F /* MentionsViewController.swift in Sources */,
+				D92DED5C1BB11FCF0010225F /* HamburgerViewController.swift in Sources */,
+				D92DED561BB11A0A0010225F /* MenuCell.swift in Sources */,
+				D92DED581BB11B990010225F /* ProfileViewController.swift in Sources */,
 				D99AEDC01BA6ABBE00D5C45A /* TweetsViewController.swift in Sources */,
 				D99AEDC41BA7CE6000D5C45A /* TweetViewController.swift in Sources */,
 				D99AED971BA68A2200D5C45A /* ViewController.swift in Sources */,
