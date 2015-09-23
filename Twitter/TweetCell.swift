@@ -16,6 +16,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetContentLabel: UILabel!
     @IBOutlet weak var favoriteView: UIImageView!
     @IBOutlet weak var retweetView: UIImageView!
+    @IBOutlet weak var profilePicButton: UIButton!
+    
+    var menuViewController: MenuViewController?
     
     var tweet: Tweet! {
         didSet {
@@ -24,6 +27,7 @@ class TweetCell: UITableViewCell {
             tweetDateLabel.text = tweet.formattedCreatedAtString
             tweetContentLabel.text = tweet.text
             profilePic.setImageWithURL(NSURL(string: url!))
+
             if (tweet.favorited > 0) {
                 favoriteView.image = UIImage(named: "favorite_on")
             } else {
@@ -37,7 +41,7 @@ class TweetCell: UITableViewCell {
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -69,6 +73,10 @@ class TweetCell: UITableViewCell {
                 self.tweet.retweeted = 1
             }
         })
+    }
+
+    @IBAction func onProfileTap(sender: AnyObject) {
+        menuViewController?.goToProfile(tweet.user!)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

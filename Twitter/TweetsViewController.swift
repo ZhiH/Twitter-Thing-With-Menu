@@ -13,6 +13,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweets: [Tweet]!
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    var menuViewController: MenuViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
+        cell.menuViewController = menuViewController
         return cell
     }
     

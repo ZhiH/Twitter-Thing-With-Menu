@@ -11,8 +11,8 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    private var tweetsNavigationController: UIViewController!
-    private var profileNavigationController: UIViewController!
+    private var tweetsNavigationController: UINavigationController!
+    private var profileNavigationController: UINavigationController!
     private var mentionsNavigationController: UIViewController!
 
 
@@ -26,13 +26,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        tweetsNavigationController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavController") as! UIViewController
-        profileNavigationController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavController") as! UIViewController
+        tweetsNavigationController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavController") as! UINavigationController
+        profileNavigationController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavController") as! UINavigationController
         mentionsNavigationController = storyboard.instantiateViewControllerWithIdentifier("MentionsNavController") as! UIViewController
         
         viewControllers.append(tweetsNavigationController)
         viewControllers.append(profileNavigationController)
         viewControllers.append(mentionsNavigationController)
+        
+        let tweetVC = tweetsNavigationController.topViewController as! TweetsViewController
+        tweetVC.menuViewController = self
+        hamburgerViewController.contentViewController = tweetsNavigationController
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +60,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+    }
+    
+    func goToProfile(user: User?) {
+        let profileVC = profileNavigationController.topViewController as! ProfileViewController
+        profileVC.user = user
+        hamburgerViewController.contentViewController = profileNavigationController
     }
     /*
     // MARK: - Navigation

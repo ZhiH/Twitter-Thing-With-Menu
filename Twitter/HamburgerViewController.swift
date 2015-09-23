@@ -23,9 +23,23 @@ class HamburgerViewController: UIViewController {
     }
     
     var contentViewController: UIViewController! {
-        didSet {
+        didSet(oldContentViewController) {
             view.layoutIfNeeded()
+
+            if oldContentViewController != nil {
+                oldContentViewController.willMoveToParentViewController(nil)
+                oldContentViewController.view.removeFromSuperview()
+                oldContentViewController.didMoveToParentViewController(nil)
+            }
+            
+            contentViewController.willMoveToParentViewController(self)
             contentView.addSubview(contentViewController.view)
+            contentViewController.didMoveToParentViewController(self)
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
@@ -47,7 +61,7 @@ class HamburgerViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.Began {
             originalLeftMargin = leftMarginConstraint.constant
         } else if sender.state == UIGestureRecognizerState.Changed {
-            leftMarginConstraint.constant = originalLeftMargin + transation.x
+            leftMarginConstraint.constant = originalLeftMargin + max(transation.x, 0)
         } else if sender.state == UIGestureRecognizerState.Ended {
             UIView.animateWithDuration(0.3, animations: {
                 if velocity.x > 0 {

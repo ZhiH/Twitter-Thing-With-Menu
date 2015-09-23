@@ -9,10 +9,32 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tweetCountLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followersCountLabel: UILabel!
+    
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if user == nil {
+            user = User.currentUser
+        } else {
+            let profileUrl = user!.profileImageUrl
+            let backgroundUrl = user!.backgroundImageUrl
+            
+            nameLabel.text = user!.name
+            tweetCountLabel.text = "\(user!.tweetCount!)"
+            followersCountLabel.text = "\(user!.followersCount!)"
+            followingCountLabel.text = "\(user!.followingCount!)"
+            
+            profileImageView.setImageWithURL(NSURL(string: profileUrl!))
+            backgroundImageView.setImageWithURL(NSURL(string: backgroundUrl!))
+        }
         // Do any additional setup after loading the view.
     }
 

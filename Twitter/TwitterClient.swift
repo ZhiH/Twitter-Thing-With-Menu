@@ -8,8 +8,8 @@
 
 import UIKit
 
-let twitterConsumerKey = "Ie1akRCteI36LjMvZI8XczmV5"
-let twitterConsumerSecret = "TqlHjpWPBxREMHaOC8lwlSTev31i61JRahNMIPig3Lcomui0T7"
+let twitterConsumerKey = "kMnMpxzjjlCKjRLYDOKxzKljs"
+let twitterConsumerSecret = "IIuB6F9vXAaD4cUWQPGFS0KicbUGEttvz5QKmHIhxS2g1Mxkjv"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {

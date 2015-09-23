@@ -22,17 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // Go to logged in screen
             println("Current user detected: \(User.currentUser?.name)")
-//            var vc = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! UIViewController
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavController") as! UIViewController
-            window?.rootViewController = vc
+            
+            let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
+
+            window?.rootViewController = hamburgerViewController
         }
-        
-//        let hamburgerViewController = window?.rootViewController as! HamburgerViewController
-//        let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-//        menuViewController.hamburgerViewController = hamburgerViewController
-//        hamburgerViewController.menuViewController = menuViewController
-        
-        
+
         return true
     }
 
