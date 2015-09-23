@@ -20,21 +20,21 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if user == nil {
             user = User.currentUser
-        } else {
-            let profileUrl = user!.profileImageUrl
-            let backgroundUrl = user!.backgroundImageUrl
-            
-            nameLabel.text = user!.name
-            tweetCountLabel.text = "\(user!.tweetCount!)"
-            followersCountLabel.text = "\(user!.followersCount!)"
-            followingCountLabel.text = "\(user!.followingCount!)"
-            
-            profileImageView.setImageWithURL(NSURL(string: profileUrl!))
-            backgroundImageView.setImageWithURL(NSURL(string: backgroundUrl!))
         }
+        let profileUrl = user!.profileImageUrl
+        let backgroundUrl = user!.backgroundImageUrl
+        
+        nameLabel.text = user!.name
+        tweetCountLabel.text = "\(user!.tweetCount!)"
+        followersCountLabel.text = "\(user!.followersCount!)"
+        followingCountLabel.text = "\(user!.followingCount!)"
+        
+        profileImageView.setImageWithURL(NSURL(string: profileUrl!))
+        backgroundImageView.setImageWithURL(NSURL(string: backgroundUrl!))
+
         // Do any additional setup after loading the view.
     }
 
@@ -42,7 +42,6 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

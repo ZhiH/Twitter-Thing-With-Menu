@@ -8,19 +8,46 @@
 
 import UIKit
 
-class MentionsViewController: UIViewController {
+class MentionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tweets: [Tweet]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 300
+        
+        TwitterClient.sharedInstance.mentionTimelineWithParams(nil, completion: { (tweets, error) -> () in
+            self.tweets = tweets
+            
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tweets = tweets {
+            return tweets.count
+        } else {
+            return 0
+        }
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("MentionCell", forIndexPath: indexPath) as! MentionCell
+        
+        cell.tweet = tweets![indexPath.row]
+        return cell
+    }
 
     /*
     // MARK: - Navigation

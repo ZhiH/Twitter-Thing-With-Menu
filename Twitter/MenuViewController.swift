@@ -33,7 +33,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         viewControllers.append(tweetsNavigationController)
         viewControllers.append(profileNavigationController)
         viewControllers.append(mentionsNavigationController)
-        
+
         let tweetVC = tweetsNavigationController.topViewController as! TweetsViewController
         tweetVC.menuViewController = self
         hamburgerViewController.contentViewController = tweetsNavigationController
@@ -58,14 +58,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+
+        if indexPath.row == 1 {
+            let profileVC = profileNavigationController.topViewController as! ProfileViewController
+            profileVC.user = nil
+            hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+            profileVC.viewDidLoad()
+        } else {
+            hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        }
     }
     
     func goToProfile(user: User?) {
         let profileVC = profileNavigationController.topViewController as! ProfileViewController
         profileVC.user = user
         hamburgerViewController.contentViewController = profileNavigationController
+        profileVC.viewDidLoad()
     }
     /*
     // MARK: - Navigation
